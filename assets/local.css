@@ -362,12 +362,13 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded.
     .supper-header .row .col-6 {max-width: 100%;text-align: center;}
     .login-area ul {justify-content: center;}
     .heading h4{ font-size: 20px;}
-    .saving-area {padding: 30px 0;text-align: center;}
+    .saving-area {padding: 30px 0;text-align: center; height:auto;}
     .saving-img {margin: 0 auto;z-index: 1;}
     .saving-content h4 {letter-spacing: 1px;line-height: normal;margin-bottom: 10px;}
     .new-arrival-product {padding-top: 0;}
     .new-arrival-product .heading {padding-bottom: 60px;}
     .menu-area ul li {display: block;width: 100%;text-align: left;}
+    .blog-area {padding:30px 0;}
 }
 
 @media(max-width:500px){
