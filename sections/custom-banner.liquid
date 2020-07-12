@@ -1,0 +1,124 @@
+
+<div class="banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="banner">
+                    {%- for block in section.blocks -%}
+                        <a href="{{block.settings.button_link}}"><img src="{{block.settings.image | img_url:'large'}}" alt="" class="img-fluid lazyload{% unless forloop.first %} lazypreload{% endunless %} js"></a>
+                    {%- endfor -%}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="first-add">
+                    <a href="{{section.settings.static_link}}">
+                        <img src="{{section.settings.first_image | img_url: 'large'}}" alt="" class="img-fluid lazyload js">
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="second-add">
+                            <a href="{{section.settings.faq_link}}">
+                                <img src="{{section.settings.faq_img | img_url: 'medium'}}" alt="" class="img-fluid lazyload js">
+                            </a>
+                        </div>  
+                    </div>
+                    <div class="col-6">
+                        <div class="second-add">
+                            <a href="{{section.settings.resources_link}}">
+                                <img src="{{section.settings.resources_img | img_url: 'medium'}}" alt="" class="img-fluid lazyload js">
+                            </a>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Slide Show",
+  "max_blocks": 4,
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "first_image",
+        "label": "First Static Image"
+    },        
+    {
+        "type": "url",
+        "id": "static_link",
+        "label": "Static Image Link"
+    },   
+    {
+        "type": "image_picker",
+        "id": "faq_img",
+        "label": "FAQ Image"
+    },        
+    {
+        "type": "url",
+        "id": "faq_link",
+        "label": "FAQ Link"
+    },   
+    {
+        "type": "image_picker",
+        "id": "resources_img",
+        "label": "Resources Image"
+    },        
+    {
+        "type": "url",
+        "id": "resources_link",
+        "label": "Resources Link"
+    }   
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": {
+        "da": "Billeddias",
+        "de": "Foto-Slide",
+        "en": "Image slide",
+        "es": "Diapositiva de imagen",
+        "fi": "Kuvadia",
+        "fr": "Diapositive (image)",
+        "hi": "इमेज स्लाइड",
+        "it": "Slide immagine",
+        "ja": "画像スライド",
+        "ko": "이미지 슬라이드",
+        "nb": "Lysbilde",
+        "nl": "Afbeelding dia",
+        "pt-BR": "Slide de imagem",
+        "pt-PT": "Diapositivo de imagem",
+        "sv": "Bild i bildspel",
+        "th": "สไลด์รูปภาพ",
+        "zh-CN": "图片幻灯片",
+        "zh-TW": "圖片投影片"
+      },
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slider Image"
+        },        
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Slideshow",
+      "category": "Image",
+      "blocks": [
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

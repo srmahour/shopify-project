@@ -1,0 +1,77 @@
+<div class="faq-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="tab-links">
+                    <ul class="nav">
+                        {%- for link in linklists[section.settings.tab_link].links -%}
+                            <li {% if forloop.first == true %} class="active" {% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>
+                        {%- endfor -%}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="custom-tab-content">
+                   <div id="faq">
+                        {%- for block in section.blocks -%}
+                        <div class="card {{block.settings.faq_id}} {% if block.settings.faq_id == "EZPetLight" %} active {% endif %}">
+                            <div class="card-header">
+                                <a class="card-link collapsed" data-toggle="collapse" href="#faq-{{forloop.index}}">
+                                    {{block.settings.title}}
+                                </a>
+                            </div>
+                            <div id="faq-{{forloop.index}}" class="collapse" data-parent="#faq">
+                                <div class="card-body">
+                                    {{block.settings.faq_content}}
+                                </div>
+                            </div>
+                        </div>
+                        {%- endfor -%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>      
+<div>
+
+{% schema %}
+    {
+        "name": "FAQ",
+        "settings":[
+            {
+                "type":"link_list",
+                "id":"tab_link",
+                "label":"Tab Menu"
+            }
+        ],
+        "blocks":[
+            {
+                "type":"text",
+                "name":"Fill FAQs",
+                "settings": [
+                    {
+                        "type":"text",
+                        "id":"title",
+                        "label":"FAQ Title"
+                    },
+                    {
+                        "type":"richtext",
+                        "id":"faq_content",
+                        "label":"FAQ Description"
+                    },
+                    {
+                        "type":"text",
+                        "id":"faq_id",
+                        "label":"FAQ ID"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "FAQ",
+                "category": "Text"
+            }
+        ]
+    }
+{% endschema %}
